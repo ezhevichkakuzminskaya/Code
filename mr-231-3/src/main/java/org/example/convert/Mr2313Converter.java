@@ -42,6 +42,10 @@ public class Mr2313Converter implements SearadarExchangeConverter {
 
         List<SearadarStationMessage> msgList = new ArrayList<>();
 
+        if (message == null || message.isEmpty()) {
+            // Возвращаем пустой список, если сообщение null или пустое
+            return msgList;
+        }
         readFields(message); // Читаем и обрабатываем поле сообщения
 
         switch (msgType) {

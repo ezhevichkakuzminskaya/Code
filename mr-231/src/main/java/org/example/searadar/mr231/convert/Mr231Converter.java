@@ -29,6 +29,11 @@ public class Mr231Converter implements SearadarExchangeConverter {
 
         List<SearadarStationMessage> msgList = new ArrayList<>();
 
+        if (message == null || message.isEmpty()) {
+            // Возвращаем пустой список, если сообщение null или пустое
+            return msgList;
+        }
+
         readFields(message);
 
         switch (msgType) {
@@ -100,8 +105,8 @@ public class Mr231Converter implements SearadarExchangeConverter {
         ttm.setTargetNumber(Integer.parseInt(fields[1]));
         ttm.setDistance(Double.parseDouble(fields[2]));
         ttm.setBearing(Double.parseDouble(fields[3]));
-        ttm.setCourse(Double.parseDouble(fields[6]));
         ttm.setSpeed(Double.parseDouble(fields[5]));
+        ttm.setCourse(Double.parseDouble(fields[6]));
         ttm.setStatus(status);
         ttm.setIff(iff);
 
